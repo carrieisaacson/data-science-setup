@@ -14,6 +14,15 @@ Eventually I'll explore using docker for some or all projects.
 (KeePassX)[https://www.keepassx.org/]
 (Dropbox)[https://www.dropbox.com/install]
 
+## Install Homebrew
+
+The missing package manager for macOS. Installation instructions can be found on the [Homebrew homepage](https://brew.sh/).
+
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+
 # Data Science Environment Setup
 
 ## Sublime
