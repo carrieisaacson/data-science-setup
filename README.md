@@ -115,8 +115,8 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 [iTerm2](https://www.iterm2.com/) is a replacement for Terminal and the successor to iTerm.
 
 Features:
-* Split Panes (new split: &#8984; + d; switch between &#8984; + [)
-* Hotkey Window
+* Split Panes - new split: &#8984; + d; switch between views &#8984; + [
+* Hotkey Window - Totally worth it setting up a Dedicated Hotkey Window. [How to set it up](https://www.iterm2.com/documentation-hotkey.html)
 * Search
 * Autocomplete
 * Mouseless Copy
