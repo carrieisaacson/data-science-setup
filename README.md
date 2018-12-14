@@ -58,6 +58,7 @@ sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/
 
 ### TODO: Install Python Linters
 
+## TODO: PyCharm
 
 ## Git
 
@@ -88,9 +89,42 @@ Set up [caching GitHub password](https://help.github.com/articles/caching-your-g
 
 Password will be stored after first prompt for username / password.
 
-### TODO: Terminal
 
-https://medium.com/swlh/power-up-your-terminal-using-oh-my-zsh-iterm2-c5a03f73a9fb
+## Tweaking Terminal (Zsh, Oh-my-Zsh, iTerm2)
+
+Make the Terminal environment a little more useful and a lot more colourful using iTerm2 and Oh-my-Zsh. Instructions adapted from [here](https://medium.com/swlh/power-up-your-terminal-using-oh-my-zsh-iterm2-c5a03f73a9fb).
+
+### Zsh
+
+[The Z shell](http://www.zsh.org/) (also known as zsh) is a Unix shell that is built on top of bash (the default shell for macOS) with additional features.
+
+```
+brew install zsh
+```
+
+### Oh My Zsh
+
+[Oh My Zsh](https://ohmyz.sh/) is an open source, community driven framework for managing zsh configuration. It has a lot of features to customise the terminal and a lot of themes available.
+
+```
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+### iTerm2
+
+[iTerm2](https://www.iterm2.com/) is a replacement for Terminal and the successor to iTerm.
+
+Features:
+* Split Panes (new split: &#8984; + d; switch between &#8984; + [)
+* Hotkey Window
+* Search
+* Autocomplete
+* Mouseless Copy
+* Paste History
+* Instant Replay
+
+Download and install [here](https://www.iterm2.com/downloads.html).
+
 
 ## R
 Install R and R Studio.
