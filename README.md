@@ -3,10 +3,12 @@
 Description of my current machine setup optimized for data science projects.
 My philosophy is to keep the default Python environment very sparse. When I start a new project I start a new environment, install the standard DS packages (e.g. numpy, pandas, scikit), use cookiecutter for a standard directory structure and start a new git repo (not necessarily in that order).
 
+This setup culminates with a script to initialize a data science project in a consistent manner.
+
 This documents my essential setup details, in case my current machine explodes or gets run over by a bus or something.
 
-Eventually I'll explore using docker for some or all projects. 
-
+TODO: alternative using docker for some or all projects. 
+TODO: fork and simplify cookiecutter-data-science
 
 # General
 
