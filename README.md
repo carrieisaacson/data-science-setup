@@ -92,7 +92,9 @@ Password will be stored after first prompt for username / password.
 
 ## Tweaking Terminal (Zsh, Oh-my-Zsh, iTerm2)
 
-Make the Terminal environment a little more useful and a lot more colourful using iTerm2 and Oh-my-Zsh. Instructions adapted from [here](https://medium.com/swlh/power-up-your-terminal-using-oh-my-zsh-iterm2-c5a03f73a9fb).
+Make the Terminal environment a little more useful and a lot more colourful using iTerm2 and Oh-my-Zsh. Instructions adapted from [here](https://medium.com/swlh/power-up-your-terminal-using-oh-my-zsh-iterm2-c5a03f73a9fb) and [here](https://medium.freecodecamp.org/jazz-up-your-zsh-terminal-in-seven-steps-a-visual-guide-e81a8fd59a38).
+
+This is especially useful for Git tracking, as Zsh / Oh-my-Zsh do things like indicate which branch you're on and colour coding when there are uncomitted changes. It's very helpful when using command-line Git.
 
 ### Zsh
 
@@ -124,6 +126,8 @@ Features:
 * Instant Replay
 
 Download and install [here](https://www.iterm2.com/downloads.html).
+
+
 
 
 ## R
