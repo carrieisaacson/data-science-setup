@@ -205,10 +205,12 @@ python-dotenv>=0.5.1
 
 TODO: Convert this to a bash file. Write instructions.
 
+This script does not override individual input requests, the user needs to oversee and indicate y/n to proceed, etc. for now this is safer. Also assumes that a repo by the same name was created on GitHub already. Could get really fancy and add a call to the GitHub API to create the repo.
+
 Bash file:
 
 ```
-conda deactivate
+conda activate base 
 conda update conda
 
 conda activate cookiecutter
@@ -246,10 +248,7 @@ git push -u origin master
 # Pushes the changes in your local repository up to the remote repository you specified as the origin
 ```
 
-Aliasing the bash file:
-
-To start a new project: 
-
-
-## TODO: Jupyter
+TODO: Aliasing the bash file:
+TODO: To start a new project: 
+TODO: 
 
