@@ -127,7 +127,12 @@ Features:
 
 Download and install [here](https://www.iterm2.com/downloads.html).
 
+Note: I had a problem with losing my $PATH. I had to add the following to the top of my `open ~/.zshrc` file and restart iTerm:
 
+```
+# Specify $PATH
+source ~/.bash_profile
+```
 
 
 ## R
