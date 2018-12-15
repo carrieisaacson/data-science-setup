@@ -209,8 +209,8 @@ cookiecutter https://github.com/drivendata/cookiecutter-data-science
 conda deactivate
 
 # create environment 
-conda create --name $ENVIRONMENT_NAME
-conda activate $ENVIRONMENT_NAME
+conda create --name $PROJECT_NAME
+conda activate $PROJECT_NAME
 
 conda install numpy
 conda install scipy
@@ -220,9 +220,23 @@ conda install matplotlib
 conda install jupyter
 conda install -c conda-forge jupyterlab
 
-cd $ENVIRONMENT_NAME
+cd $PROJECT_NAME
 conda env export > requirements.yaml
 conda list --export > requirements.txt
+
+# Initialize github repo
+cd $PROJECT_NAME
+git init
+git add .
+git commit -m "First commit"
+
+git remote add origin https://github.com/carrieisaacson/$PROJECT_NAME.git
+# Sets the new remote
+git remote -v
+# Verifies the new remote URL
+
+git push -u origin master
+# Pushes the changes in your local repository up to the remote repository you specified as the origin
 ```
 
 Aliasing the bash file:
