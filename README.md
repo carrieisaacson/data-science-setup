@@ -10,6 +10,7 @@ This documents my essential setup details, in case my current machine explodes o
 TODO: alternative using docker for some or all projects. 
 TODO: fork and simplify cookiecutter-data-science
 
+
 # General
 
 (Chrome)[https://www.google.com/chrome/]
@@ -55,7 +56,7 @@ source ~/.bash_profile
 
 Create symbolic link. In terminal:
 ```
-sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+
 ```
 
 ### TODO: Install Python Linters
