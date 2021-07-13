@@ -56,12 +56,15 @@ source ~/.bash_profile
 
 Create symbolic link. In terminal:
 ```
-
+sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
 ```
 
-### TODO: Install Python Linters
-
 ## TODO: PyCharm
+
+Install the [PyCharm Community IDE](https://www.jetbrains.com/pycharm/download/#section=mac) 
+
+## TODO: Install Python Linters
+
 
 ## Git
 
@@ -89,6 +92,12 @@ git config --global user.email
 Set up for cloning via HTTPS which is the strategy Github recommends (over cloning via SSH). Caching password using `osxkeychain`. Additional setup required for 2-factor.
 
 Set up [caching GitHub password](https://help.github.com/articles/caching-your-github-password-in-git/).
+
+```
+git config --global credential.helper osxkeychain
+```
+
+Create a [personal access token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 Password will be stored after first prompt for username / password.
 
