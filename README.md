@@ -180,85 +180,87 @@ conda list
 I'm making a conscious effort here to keep the default environment as tidy as possible. Save default environment (for when I inevitably install packages in there I didn’t mean to).
 ```
 conda env export --name root > base_env.yaml
-conda list --export > base_env.txt
+conda list --export > base_env.txt
 ```
 
-### Data Science Environment Creator
+#### Environments
 
-#### Cookiecutter
+I like to create environments for general work areas.
+If a project is likely to be productionalized later (as opposed to a general analysis env or working on dbt models), then creating a separate env is appropriate.
 
-I was swayed by discussion with Peter Bull (DrivenData) on the (DataFramed Podcast)[https://www.datacamp.com/community/podcast/human-centered-design-data-science] that we would all be better off if data science projects had standard directory structures, an approach adopted by many frameworks eg Rails. The thinking is that this approach makes it easier to jump into someone else's project and orient quickly. 
-
-In addition this standard structure encourages best practices, such as separating raw and processed data files and maintaining a project README.
-
-For now I am adopting the DrivenData data science cookiecutter, but this includes infrastructure I do not or rarely require in my projects. For example, this setup includes requirements for packaging and command-line interfacts, neither are useful for a basic data-analysis task. This seems a little at odds with the general keepin-it-tidy approach. As I work with this framework I will consider preparing my own cookiecutter that fits my typical workflows.
-
+I like having a general analysis (name it how you like, "analysis") that you can dump every package under the sun into. If a project is going to be shared
 ```
-conda create --name cookiecutter
-conda activate cookiecutter
-conda install -c conda-forge cookiecutter
-conda deactivate
-```
-
-The following are external requirements specified in the cookiecutter that will not be installed by default at this time. I'll revisit this later:
-```
-# external requirements
-click
-Sphinx
-coverage
-awscli
-flake8
-python-dotenv>=0.5.1
-```
-
-#### Starting a Data Science Project
-
-TODO: Convert this to a bash file. Write instructions.
-
-This script does not override individual input requests, the user needs to oversee and indicate y/n to proceed, etc. for now this is safer. Also assumes that a repo by the same name was created on GitHub already. Could get really fancy and add a call to the GitHub API to create the repo.
-
-Bash file:
-
-```
-conda activate base 
-conda update conda
-
-conda activate cookiecutter
-cookiecutter https://github.com/drivendata/cookiecutter-data-science
-conda deactivate
-
-# create environment 
-conda create --name $PROJECT_NAME
-conda activate $PROJECT_NAME
-
+conda create --name analysis
 conda install numpy
 conda install scipy
 conda install pandas
 conda install scikit-learn
 conda install matplotlib
 conda install jupyter
-conda install -c conda-forge jupyterlab
-
-cd $PROJECT_NAME
-conda env export > requirements.yaml
-conda list --export > requirements.txt
-
-# Initialize github repo
-cd $PROJECT_NAME
-git init
-git add .
-git commit -m "First commit"
-
-git remote add origin https://github.com/carrieisaacson/$PROJECT_NAME.git
-# Sets the new remote
-git remote -v
-# Verifies the new remote URL
-
-git push -u origin master
-# Pushes the changes in your local repository up to the remote repository you specified as the origin
+conda install jupyterlab
 ```
 
-TODO: Aliasing the bash file:
-TODO: To start a new project: 
-TODO: 
+### Accessing Snowflake via Python Connector
+
+
+```
+conda activate analysis
+pip install --upgrade snowflake-sqlalchemy
+pip install pandas
+```
+
+(did I miss other required installs here?)
+
+
+Here's how I load snowflake passwords. I create a package (<packagename>) with a very basic script for loading credentials and 
+Make a new directory in the analysis env in the folder lib/python<version>/site-packages using 
+
+```
+cd ~/opt/miniconda3/envs/analysis/lib/python3.9/site-packages
+mkdir <packagename>
+touch __init__.py
+subl __init__.py
+```
+
+Insert the following, sourced [here](https://www.analyticsvidhya.com/blog/2021/05/one-stop-shop-for-connecting-snowflake-to-python/), into __init__.py:
+
+```
+from sqlalchemy import create_engine
+from snowflake.sqlalchemy import URL
+
+def connect_to_snowflake():
+	url = URL(
+	    account = '<accountname>',
+	    user = '<username>',
+	    password = '<password>',
+	    warehouse= '<warehousename>',
+	)
+	engine = create_engine(url)
+	cxn = engine.connect()
+    print('connection extablished usage: pd.read_sql(<query_name>, <cxn>)')
+    return(cxn)
+```
+
+Note that account name appears in the snowflake UI url 
+https://<accountname>.snowflakecomputing.com/console#/internal/worksheet
+https://app.snowflake.com/us-west-2/<accountname>
+
+Usage:
+
+```
+import <packagename>
+
+query = '''select * from <snowflake DB tablename>'''
+data = pd.read_sql(query, cxn)
+```
+
+
+### Install DBT
+
+Create an environment for working in the dbt_models repo:
+```
+conda create --name dbt_models
+```
+
+[DBT installation instructions](https://docs.getdbt.com/dbt-cli/installation)
 
